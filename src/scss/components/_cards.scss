@@ -1,0 +1,59 @@
+// cards
+#searchCharacters {
+  @media screen and (min-width: $md-screen) {
+    .input-group {
+      max-width: 50%;
+    } 
+  }
+}
+
+.no-characters-found-row {
+  position: relative;
+  padding: 50px 0;
+}
+
+.rickmorty__cards {
+  position: relative;
+  margin: 12px 0;
+}
+
+.card-wrapper {
+  margin: 12px 0;
+
+  &__status {
+    position: relative;
+    top: -5px;
+    width: 9px;
+    height: 9px;
+    margin: 0 0 0 15px;
+    border-radius: 50%;
+  }
+
+  .alive { background-color: $alive-status; }
+  .dead { background-color: $dead-status; }
+}
+
+.card-list {
+  position: relative;
+  margin: 10px 0;
+
+  .card-list-item {
+    margin: 10px 0;
+    @include fontSize(14px);
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      font-weight: 700;
+      color: $card-label;
+      margin-bottom: 5px;
+      @include fontSize(16px);
+    }
+  }
+}
