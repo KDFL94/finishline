@@ -1,4 +1,10 @@
+// imports
 @import '~bootstrap';
+@import 'global/reset';
+@import 'global/utils';
+@import 'global/colors';
+@import 'global/typography';
+@import 'layout/header';
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -6,5 +12,10 @@
 }
 
 body {
-  background-color: aqua;
+  background-color: $site-background-color;
+  @include roboto;
+}
+
+#main {
+  padding: 50px 0;
 }

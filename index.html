@@ -17,7 +17,6 @@
 
     <!-- STYLE -->
     <link rel="stylesheet" type="text/css" href="css/app.min.css">
-    
 
   </head>
   <!-- /HEAD -->
@@ -26,7 +25,7 @@
   <body>
     
     <!-- HEADER -->
-    <header id="header">
+    <header id="header" class="d-flex flex-row align-items-center">
       <div class="container">
         <div class="d-flex flex-row">
           <a href="index.html" class="site-title">Rick & Morty</a>
@@ -37,9 +36,35 @@
 
     <!-- MAIN -->
     <div id="main">
+
       <div class="container">
 
+        <div class="rickmorty__cards">
+
+          <div class="row d-flex flex-column flex-md-row justify-content-start">
+
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="card">
+                <img class="card-img-top" src="http://placehold.it/100x100" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Rick</h5>
+                  <p class="card-text">
+                    Last location: Mars
+                  </p>
+                  <p class="card-text">
+                    First seen in: Earth
+                  </p>
+                  <a href="#" target="_blank" class="btn btn-primary">Delete</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
     </div>
     <!-- /MAIN -->
 
