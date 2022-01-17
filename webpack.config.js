@@ -3,7 +3,9 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const glob = require('glob');
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -11,6 +13,7 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 
 const config = {
   entry: [
+    "regenerator-runtime/runtime.js",
     "./src/js/app.js",
     "./src/scss/app.scss"
   ],
@@ -20,18 +23,26 @@ const config = {
   },
   devServer: {
     open: true,
-    host: "localhost",
+    host: "localhost"
   },
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: "index.html"
     }),
-    // new HtmlWebpackPlugin({ template: './dist/index.html' }),
     new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
       proxy: 'http://localhost:8080/'
+    }),
+    new ImageminPlugin({
+      externalImages: {
+        context: '.',
+        sources: glob.sync('./src/img/**/*.{jpg,png,svg,jpeg}'),
+        destination: './dist/img',
+        fileName: '../[path][name].[ext]'
+      }
+      // ...
     })
   ],
   module: {
@@ -40,10 +51,10 @@ const config = {
         test: /\.(js|jsx)$/i,
         loader: "babel-loader",
       },
-      // {
-      //   test: /\.s[ac]ss$/i,
-      //   use: [stylesHandler, "css-loader", "postcss-loader", "sass-loader"],
-      // },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        loader: 'file-loader'
+      },
       {
         test: /\.s[ac]ss$/i,
         use: [

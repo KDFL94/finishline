@@ -1,0 +1,14 @@
+#footer {
+  position: relative;
+  width: 100%;
+  background-color: $footer-background-color;
+  padding: 50px 0;
+
+  .site-title {
+    text-decoration: none;
+    outline: none;
+    color: $white;
+    font-weight: 900;
+    @include fontSize(32px);
+  }
+}

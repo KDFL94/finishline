@@ -1,0 +1,17 @@
+// fonts
+@mixin roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+// headings
+h2 {
+  @include fontSize(36px);
+  color: $black;
+  font-weight: 700;
+}
+
+h5 {
+  @include fontSize(20px);
+  color: $black;
+  font-weight: 700;
+}

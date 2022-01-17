@@ -1,4 +1,13 @@
+// imports
 @import '~bootstrap';
+@import 'global/reset';
+@import 'global/variables';
+@import 'global/utils';
+@import 'global/colors';
+@import 'global/typography';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'components/cards';
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -6,5 +15,11 @@
 }
 
 body {
-  background-color: aqua;
+  background-color: $site-background-color;
+  @include roboto;
+}
+
+#main {
+  padding: 130px 0 50px;
+  min-height: 100vh;
 }

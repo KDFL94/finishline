@@ -1,3 +1,8 @@
-// import './scss/style.scss';
+// load dependencies
+window.$ = window.jQuery = require("jquery");
+import { rickAndMorty } from './rickandmorty';
 
-console.log("Hello World!");
+$(() => {
+  // initalize
+  rickAndMorty.init();
+});
